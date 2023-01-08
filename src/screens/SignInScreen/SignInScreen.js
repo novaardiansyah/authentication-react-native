@@ -1,5 +1,6 @@
-import react, { useState } from 'react'
-import { View, Text, Image, StyleSheet, useWindowDimensions, ScrollView } from 'react-native'
+import { useState } from 'react'
+import { View, Image, StyleSheet, useWindowDimensions, ScrollView } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 import Logo from '../../../assets/images/Logo_1.png'
 
@@ -12,16 +13,18 @@ const SignInScreen = () => {
   const [ password, setPassword ] = useState('')
   const { height } = useWindowDimensions()
 
+  const navigation = useNavigation()
+
   const onSignIn = () => {
-    console.warn('Sign in pressed')
+    navigation.navigate('Home')
   }
 
   const onSignUp = () => {
-    console.warn('Sign up pressed')
+    navigation.navigate('SignUp')
   }
 
   const onForgotPassword = () => {
-    console.warn('Forgot password pressed')
+    navigation.navigate('ForgotPassword')
   }
 
   return (

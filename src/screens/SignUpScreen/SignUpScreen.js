@@ -1,5 +1,6 @@
-import react, { useState } from 'react'
+import { useState } from 'react'
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 import CustomInput from '../../components/CustomInput'
 import CustomButton from '../../components/CustomButton'
@@ -11,12 +12,14 @@ const SignUpScreen = () => {
   const [ password, setPassword ] = useState('')
   const [ confirmPassword, setConfirmPassword ] = useState('')
 
+  const navigation = useNavigation()
+
   const onSignUp = () => {
-    console.warn('Sign up pressed')
+    navigation.navigate('ConfirmEmail')
   }
 
   const onSignIn = () => {
-    console.warn('Sign up pressed')
+    navigation.navigate('SignIn')
   }
 
   const onTermsOfUse = () => {
