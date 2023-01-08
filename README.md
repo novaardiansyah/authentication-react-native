@@ -6,7 +6,7 @@ Thank you for visiting my project repository. This project is about building a u
 
 Thank you for your interest. Happy coding!
 
-### How to Use
+### Installation and Usage
 
 Before you begin, make sure you have the following software installed on your machine:
 
