@@ -1,0 +1,11 @@
+{
+  "related-information": {
+    "command": {
+      "name": "Install exac version of the package",
+      "command": "npm install --legacy-peer-deps"
+    }
+  },
+  "search-information": {
+    "issues": []
+  }
+}
