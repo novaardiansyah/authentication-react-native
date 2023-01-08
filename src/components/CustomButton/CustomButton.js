@@ -26,11 +26,13 @@ const styles = StyleSheet.create({
     padding: 15,
     marginVertical: 5
   },
-  container__tertiary: {
-    
-  },
+  container__tertiary: {},
   container__primary: {
     backgroundColor: '#3B71F3'
+  },
+  container__secondary: {
+    borderColor: '#3B71F3',
+    borderWidth: 2
   },
   text: {
     fontWeight: 'bold',
@@ -39,7 +41,10 @@ const styles = StyleSheet.create({
   text__tertiary: {
     color: 'grey'
   },
-  text__primary: {}
+  text__primary: {},
+  text__secondary: {
+    color: '#3B71F3'
+  }
 })
 
 export default CustomInput
