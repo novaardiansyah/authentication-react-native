@@ -1,5 +1,6 @@
-import react, { useState } from 'react'
+import { useState } from 'react'
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 import CustomInput from '../../components/CustomInput'
 import CustomButton from '../../components/CustomButton'
@@ -8,13 +9,15 @@ const ResetPasswordScreen = () => {
   const [ code, setCode ] = useState('')
   const [ password, setPassword ] = useState('')
   const [ confirmPassword, setConfirmPassword ] = useState('')
+  
+  const navigation = useNavigation()
 
   const onResetPassword = () => {
-    console.warn('Confirm pressed')
+    navigation.navigate('SignIn')
   }
 
   const onSignIn = () => {
-    console.warn('Sign up pressed')
+    navigation.navigate('SignIn')
   }
 
   return (

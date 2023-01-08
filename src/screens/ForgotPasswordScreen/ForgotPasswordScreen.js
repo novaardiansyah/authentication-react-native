@@ -1,5 +1,6 @@
 import react, { useState } from 'react'
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 import CustomInput from '../../components/CustomInput'
 import CustomButton from '../../components/CustomButton'
@@ -7,12 +8,14 @@ import CustomButton from '../../components/CustomButton'
 const ForgotPasswordScreen = () => {
   const [ username, setUsername ] = useState('')
 
+  const navigation = useNavigation()
+
   const onSend = () => {
-    console.warn('Send pressed')
+    navigation.navigate('ResetPassword')
   }
 
   const onSignIn = () => {
-    console.warn('Sign up pressed')
+    navigation.navigate('SignIn')
   }
 
   return (

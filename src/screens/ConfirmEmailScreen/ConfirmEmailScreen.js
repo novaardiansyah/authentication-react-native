@@ -1,5 +1,6 @@
-import react, { useState } from 'react'
+import { useState } from 'react'
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 import CustomInput from '../../components/CustomInput'
 import CustomButton from '../../components/CustomButton'
@@ -8,12 +9,14 @@ const ConfirmEmailScreen = () => {
   const [ email, setEmail ] = useState('')
   const [ code, setCode ] = useState('')
 
+  const navigation = useNavigation()
+
   const onConfirm = () => {
-    console.warn('Confirm pressed')
+    navigation.navigate('Home')
   }
 
   const onSignIn = () => {
-    console.warn('Sign up pressed')
+    navigation.navigate('SignIn')
   }
 
   const onResendCode = () => {
