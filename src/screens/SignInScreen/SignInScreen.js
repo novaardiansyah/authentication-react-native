@@ -33,15 +33,9 @@ const SignInScreen = () => {
       <View style={styles.root}>
         <Image source={Logo} style={[styles.logo, { height: height * 0.3 }]} resizeMode="contain" />
 
-        <CustomInput name="username" placeholder="Username" control={control} />
-        <CustomInput name="password" placeholder="Password" control={control} secureTextEntry />
-        
-        {/* <Controller control={control} name="username" render={({
-          field: { onChange, onBlur, value }
-        }) => (
-          <TextInput placeholder="Username" value={value} onChangeText={onChange} onBlur={onBlur} />
-        )} /> */}
- 
+        <CustomInput name="username" placeholder="Username" rules={{ required: 'Username is required.' }} control={control} />
+        <CustomInput name="password" placeholder="Password" rules={{ required: 'Password is required.', minLength: { value: 5, message: 'Password contains at least 5 characters.' } }} control={control} secureTextEntry />
+         
         <CustomButton text="Sign In" onPress={handleSubmit(onSignIn)} />
         <CustomButton text="Forgot Password" onPress={onForgotPassword} variant="tertiary" />
         
