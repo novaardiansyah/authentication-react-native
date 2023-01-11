@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import { View, Image, StyleSheet, useWindowDimensions, ScrollView } from 'react-native'
+import { View, Image, StyleSheet, useWindowDimensions, ScrollView, TextInput } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import { useForm, Controller } from 'react-hook-form'
 
 import Logo from '../../../assets/images/Logo_1.png'
 
@@ -9,14 +9,13 @@ import CustomButton from '../../components/CustomButton'
 import SocialSignInButton from '../../components/SocialSignInButton/SocialSignInButton'
 
 const SignInScreen = () => {
-  const [ username, setUsername ] = useState('')
-  const [ password, setPassword ] = useState('')
   const { height } = useWindowDimensions()
 
   const navigation = useNavigation()
 
-  const onSignIn = () => {
+  const onSignIn = (data) => {
     navigation.navigate('Home')
+    console.log(data)
   }
 
   const onSignUp = () => {
@@ -27,15 +26,23 @@ const SignInScreen = () => {
     navigation.navigate('ForgotPassword')
   }
 
+  const { control, handleSubmit } = useForm()
+
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.root}>
         <Image source={Logo} style={[styles.logo, { height: height * 0.3 }]} resizeMode="contain" />
 
-        <CustomInput placeholder="Username" value={username} setValue={setUsername} />
-        <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry />
-
-        <CustomButton text="Sign In" onPress={onSignIn} />
+        <CustomInput name="username" placeholder="Username" control={control} />
+        <CustomInput name="password" placeholder="Password" control={control} secureTextEntry />
+        
+        {/* <Controller control={control} name="username" render={({
+          field: { onChange, onBlur, value }
+        }) => (
+          <TextInput placeholder="Username" value={value} onChangeText={onChange} onBlur={onBlur} />
+        )} /> */}
+ 
+        <CustomButton text="Sign In" onPress={handleSubmit(onSignIn)} />
         <CustomButton text="Forgot Password" onPress={onForgotPassword} variant="tertiary" />
         
         <SocialSignInButton />
