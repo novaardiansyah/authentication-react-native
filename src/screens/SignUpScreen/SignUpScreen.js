@@ -1,17 +1,13 @@
 import { useState } from 'react'
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import { useForm, Controller } from 'react-hook-form'
 
 import CustomInput from '../../components/CustomInput'
 import CustomButton from '../../components/CustomButton'
 import SocialSignInButton from '../../components/SocialSignInButton/SocialSignInButton'
 
 const SignUpScreen = () => {
-  const [ username, setUsername ] = useState('')
-  const [ email, setEmail ] = useState('')
-  const [ password, setPassword ] = useState('')
-  const [ confirmPassword, setConfirmPassword ] = useState('')
-
   const navigation = useNavigation()
 
   const onSignUp = () => {
@@ -30,17 +26,22 @@ const SignUpScreen = () => {
     console.warn('Privacy policy pressed')
   }
 
+  const { control, handleSubmit, watch } = useForm()
+  const password = watch('password')
+
+  const valid_email = /^[A-Z0-9@]/
+
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.root}>
         <Text style={styles.title}>Create an Account</Text>
 
-        <CustomInput placeholder="Username" value={username} setValue={setUsername} />
-        <CustomInput placeholder="Email" value={email} setValue={setEmail} />
-        <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry />
-        <CustomInput placeholder="Confirm Password" value={confirmPassword} setValue={setConfirmPassword} secureTextEntry />
+        <CustomInput name="username" placeholder="Username" rules={{ required: 'Username is required.' }} control={control} />
+        <CustomInput name="email" placeholder="Email" rules={{ pattern: { value: valid_email, message: 'Email is not valid.' } }} control={control} />
+        <CustomInput name="password" placeholder="Password" rules={{ required: 'Password is required.', minLength: { value: 5, message: 'Password contains at least 5 characters.' } }} control={control} secureTextEntry />
+        <CustomInput name="confirmPassword" placeholder="Confirm Password" rules={{ validate: value => value === password ? true : 'Confirm Password is not valid.' }} control={control} secureTextEntry />
 
-        <CustomButton text="Register" onPress={onSignUp} />
+        <CustomButton text="Register" onPress={handleSubmit(onSignUp)} />
         
         <Text style={styles.text}>By registering, you confirm that you accept our{' '}
           <Text style={styles.link} onPress={onTermsOfUse}>Terms of Use</Text> and{' '}
