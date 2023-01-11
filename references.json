@@ -1,5 +1,16 @@
 {
   "related-information": {
+    "source": [
+      {
+        "from-channel": "NotJust.Dev",
+        "name": "Playlist Video",
+        "title": "Login Authentication Workflow React Native AWS",
+        "url": "https://www.youtube.com/playlist?list=PLY3ncAV1dSVDl6ln8DoZo3DHnSHgpaaCr",
+        "total-video": 4,
+        "first-upload": "2021-10-19 14:14:09",
+        "last-upload": "2022-01-24 18:34:39"
+      }
+    ],
     "command": {
       "name": "Install exac version of the package",
       "command": "npm install --legacy-peer-deps"
