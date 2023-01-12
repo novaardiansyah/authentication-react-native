@@ -58,8 +58,20 @@ Thank you for your understanding.
 
 ### Status
 
-![stages](https://img.shields.io/badge/stages-development-informational)
+![stages](https://img.shields.io/badge/stages-production-informational)
 [![information](https://img.shields.io/badge/information-references-informational)](https://github.com/novaardiansyah/authentication-react-native/blob/main/references.json)
 ![size](https://img.shields.io/github/repo-size/novaardiansyah/authentication-react-native?label=size&color=informational)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/novaardiansyah/authentication-react-native/blob/main/LICENSE)
 [![last commit](https://img.shields.io/github/last-commit/novaardiansyah/authentication-react-native?label=last%20commit&color=informational)](https://github.com/novaardiansyah/authentication-react-native/commits/main)
+
+### Snapshot
+
+<p float="left">
+  <img src="https://raw.githubusercontent.com/novaardiansyah/authentication-react-native/main/public/images/images-1.png" width="250" />&emsp;&emsp;
+  <img src="https://raw.githubusercontent.com/novaardiansyah/authentication-react-native/main/public/images/images-2.png" width="250" />
+</p>
+
+<p float="left">
+  <img src="https://raw.githubusercontent.com/novaardiansyah/authentication-react-native/main/public/images/images-3.png" width="250" />&emsp;&emsp;
+  <img src="https://raw.githubusercontent.com/novaardiansyah/authentication-react-native/main/public/images/images-4.png" width="250" />
+</p>
