@@ -29,7 +29,7 @@ const SignUpScreen = () => {
   const { control, handleSubmit, watch } = useForm()
   const password = watch('password')
 
-  const valid_email = /^[A-Z0-9@]/
+  const valid_email = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}/
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
@@ -37,7 +37,7 @@ const SignUpScreen = () => {
         <Text style={styles.title}>Create an Account</Text>
 
         <CustomInput name="username" placeholder="Username" rules={{ required: 'Username is required.' }} control={control} />
-        <CustomInput name="email" placeholder="Email" rules={{ pattern: { value: valid_email, message: 'Email is not valid.' } }} control={control} />
+        <CustomInput name="email" placeholder="Email" rules={{ pattern: { value: valid_email, message: 'Email is not valid.' }, required: 'Email is required.' }} control={control} />
         <CustomInput name="password" placeholder="Password" rules={{ required: 'Password is required.', minLength: { value: 5, message: 'Password contains at least 5 characters.' } }} control={control} secureTextEntry />
         <CustomInput name="confirmPassword" placeholder="Confirm Password" rules={{ validate: value => value === password ? true : 'Confirm Password is not valid.' }} control={control} secureTextEntry />
 
